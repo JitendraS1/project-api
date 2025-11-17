@@ -10,12 +10,20 @@
           "node_modules/**"
         ]
       }
+    },
+    {
+      "src": "src/vercel-api/**/*.ts",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
       "dest": "src/index.ts"
+    },
+    {
+      "src": "/health",
+      "dest": "src/vercel-api/health.ts"
     },
     {
       "src": "/",
