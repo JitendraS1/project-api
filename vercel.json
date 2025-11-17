@@ -3,30 +3,12 @@
   "builds": [
     {
       "src": "src/index.ts",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": [
-          "dist/**",
-          "node_modules/**"
-        ]
-      }
-    },
-    {
-      "src": "src/vercel-api/**/*.ts",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "src/index.ts"
-    },
-    {
-      "src": "/health",
-      "dest": "src/vercel-api/health.ts"
-    },
-    {
-      "src": "/",
+      "src": "/(.*)",
       "dest": "src/index.ts"
     }
   ]
