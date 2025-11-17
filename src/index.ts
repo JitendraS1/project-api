@@ -9,8 +9,6 @@ const server = express();
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, new ExpressAdapter(server));
   app.useGlobalPipes(new ValidationPipe());
-  // Remove the global prefix to avoid conflicts
-  // app.setGlobalPrefix('api');
   await app.init();
   return server;
 }
